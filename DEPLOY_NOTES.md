@@ -54,6 +54,8 @@
 
 
 ### Installation record (container-based)
+- Execution date: 2026-01-11
+- HRMS source: https://github.com/frappe/hrms (branch: version-15)
 - No local HRMS repo exists on the mac host at `/Users/mohammadaldossari/projects/hrms`.
 - HRMS was installed inside the `backend` container under:
   `/home/frappe/frappe-bench/apps/hrms`
