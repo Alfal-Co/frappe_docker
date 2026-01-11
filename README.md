@@ -36,6 +36,8 @@ frappe_docker/
 
 **The official documentation for `frappe_docker` is maintained in the `docs/` folder in this repository.**
 
+Local deployment notes (including HRMS installation record) are in `DEPLOY_NOTES.md`.
+
 **New to Frappe Docker?** Read the [Getting Started Guide](docs/getting-started.md) for a comprehensive overview of repository structure, development workflow, custom apps, Docker concepts, and quick start examples.
 
 If you are already familiar with Frappe, you can jump right into the [different deployment methods](docs/01-getting-started/01-choosing-a-deployment-method.md) and select the one best suited to your use case.
