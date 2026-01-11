@@ -27,3 +27,6 @@
 ## Backup
 - `docker compose -f compose.yaml -f overrides/compose.mariadb.yaml -f overrides/compose.redis.yaml -f overrides/compose.proxy.yaml exec -T backend \
   bench --site <SITE_NAME> backup --with-files`
+
+HRMS enable command: `bench --site localhost install-app hrms && bench --site localhost migrate`
+Root cause/fix: `hrms` missing from `sites/apps.txt`; added it, then installed HRMS and ran migrate.
