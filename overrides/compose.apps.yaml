@@ -1,0 +1,62 @@
+services:
+  configurator:
+    command:
+      - >
+        if [ -n "$$INSTALL_APPS" ]; then
+          echo "$$INSTALL_APPS" | tr ',' '\n' > sites/apps.txt;
+        else
+          ls -1 apps > sites/apps.txt;
+        fi;
+        bench set-config -g db_host $$DB_HOST;
+        bench set-config -gp db_port $$DB_PORT;
+        bench set-config -g redis_cache "redis://$$REDIS_CACHE";
+        bench set-config -g redis_queue "redis://$$REDIS_QUEUE";
+        bench set-config -g redis_socketio "redis://$$REDIS_QUEUE";
+        bench set-config -gp socketio_port $$SOCKETIO_PORT;
+    environment:
+      INSTALL_APPS: ${INSTALL_APPS:-}
+      PYTHONPATH: /home/frappe/frappe-bench/apps/frappe:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/hrms
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  backend:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/frappe:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/hrms
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  frontend:
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  websocket:
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  queue-short:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/frappe:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/hrms
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  queue-long:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/frappe:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/hrms
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+  scheduler:
+    environment:
+      PYTHONPATH: /home/frappe/frappe-bench/apps/frappe:/home/frappe/frappe-bench/apps/erpnext:/home/frappe/frappe-bench/apps/hrms
+    volumes:
+      - sites:/home/frappe/frappe-bench/sites
+      - apps:/home/frappe/frappe-bench/apps
+
+volumes:
+  apps:

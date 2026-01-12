@@ -1,0 +1,4 @@
+services:
+  frontend:
+    labels:
+      - "traefik.http.services.frontend.loadbalancer.server.port=8080"
