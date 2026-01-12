@@ -28,3 +28,15 @@ venv
 
 # NodeJS
 node_modules
+.DS_Store
+backups_local/
+*.sql.gz
+*.tar
+
+# macOS
+.DS_Store
+
+# Backups (local only)
+backups_local/
+*.sql.gz
+*.tar
