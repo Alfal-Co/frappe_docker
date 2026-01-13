@@ -1,0 +1,6 @@
+# Allowed Warehouses: سيارات - السليل - ALF | سيارات - الدلم - ALF | سيارات - وادي الدواسر - ALF | سيارات - الأفلاج - ALF | ثلاجات - السليل - ALF | ثلاجات - الدلم - ALF | ثلاجات - وادي الدواسر - ALF | ثلاجات - الأفلاج - ALF
+# Allowed Asset Categories: سيارات | ثلاجات العرض | مستودعات/مبانٍ | أصول أخرى
+# Allowed Fridge Size: صغير | متوسط | كبير
+Asset Name,Asset Category,Warehouse,Plate No,Model,Year,Chassis No,Fridge Size,Fridge Brand,Branch
+سيارة توزيع 01,سيارات,سيارات - السليل - ALF,ب ع ه 7959,ايسوزو,2025,JTE123456789,,,السليل
+ثلاجة عرض 197,ثلاجات العرض,ثلاجات - الدلم - ALF,,,,,كبير,الوطنية,الدلم
